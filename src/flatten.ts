@@ -1,4 +1,4 @@
-// Question:
+// Question: Recursive Generics
 /*
   type Flatten<T> = {
     // Implement here
