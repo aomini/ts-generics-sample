@@ -10,5 +10,5 @@ type NonNull = ExcludeNullish<string | number | null | undefined>;
 
 /**
  * Solution:
-    type ExcludeNullish<T> = T extends {} ? T : never;
+    type ExcludeNullish<T>  = T & {};
  */
