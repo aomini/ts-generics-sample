@@ -1,19 +1,9 @@
-class EventEmitter<T extends Record<string, (...args: any[]) => void>> {
-  on<K extends keyof T>(event: K, handler: T[K]): void {
-    // Implement here
-  }
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : never;
 
-  emit<K extends keyof T>(event: K, ...args: Parameters<T[K]>): void {
-    // Implement here
-  }
-}
+type Example = () => string;
 
-interface Events {
-  click: (x: number, y: number) => void;
-  change: (value: string) => void;
-}
+// Infer the return type of `Example`
+type Result = ReturnType<Example>; // Result is `string`
 
-const emitter = new EventEmitter<Events>();
-emitter.on("click", (x, y) => console.log(x, y));
-emitter.emit("click", 10, 20); // Valid
-emitter.emit("change", "new value"); // Valid
+type Test = Exclude<"a", keyof { a: string; b: number }>;
+type B = Extract<"a", keyof { a: string; b: number }>;
