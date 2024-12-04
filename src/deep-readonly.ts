@@ -31,3 +31,5 @@ const a: DeepReadonly<Example> = {
   readonly [P in keyof T]: T[P] extends object ? DeepReadonly<T[P]> : T[P];
  };
  */
+
+type A = Parameters<(a: number) => void>;
